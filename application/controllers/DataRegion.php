@@ -6,7 +6,7 @@ class DataRegion extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model("dataregion");
+        $this->load->model("dataregion_model");
     }
 
     public function index(){

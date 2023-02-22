@@ -4,7 +4,7 @@ use function PHPSTORM_META\type;
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class DataRegion extends CI_Model
+class DataRegion_model extends CI_Model
 {
 
     /**
