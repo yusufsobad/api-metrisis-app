@@ -42,7 +42,7 @@ class DataRegion_model extends CI_Model
         $this->db_region->where('ID',$id);
         $query = $this->db_region->get();
 
-        return $query;
+        return $query->result_array();
     }
 
     public function getProvinces()
@@ -51,7 +51,7 @@ class DataRegion_model extends CI_Model
         $this->db_region->from('sasi-province');
         $query = $this->db_region->get();
 
-        return $query;
+        return $query->result_array();
     }
 
     public function getCity($id=0)
@@ -61,7 +61,7 @@ class DataRegion_model extends CI_Model
         $this->db_region->where('ID',$id);
         $query = $this->db_region->get();
 
-        return $query;
+        return $query->result_array();
     }
 
     public function getCities_by($prov=0)
@@ -71,7 +71,7 @@ class DataRegion_model extends CI_Model
         $this->db_region->where('id_province',$prov);
         $query = $this->db_region->get();
 
-        return $query;
+        return $query->result_array();
     }
 
     public function getSubdistrict($id=0)
@@ -81,7 +81,7 @@ class DataRegion_model extends CI_Model
         $this->db_region->where('ID',$id);
         $query = $this->db_region->get();
 
-        return $query;
+        return $query->result_array();
     }
 
     public function getSubdistricts_by($city=0)
@@ -91,7 +91,7 @@ class DataRegion_model extends CI_Model
         $this->db_region->where('id_city',$city);
         $query = $this->db_region->get();
 
-        return $query;
+        return $query->result_array();
     }
 
     public function getVillage($id=0)
@@ -101,7 +101,7 @@ class DataRegion_model extends CI_Model
         $this->db_region->where('ID',$id);
         $query = $this->db_region->get();
 
-        return $query;
+        return $query->result_array();
     }
 
     public function getVillages_by($sub=0)
@@ -111,7 +111,7 @@ class DataRegion_model extends CI_Model
         $this->db_region->where('id_subdistrict',$sub);
         $query = $this->db_region->get();
 
-        return $query;
+        return $query->result_array();
     }
 
     public function getPostcodes($id=0)
@@ -122,6 +122,6 @@ class DataRegion_model extends CI_Model
         $this->db_region->where('id_subdistrict',$id);
         $query = $this->db_region->get();
 
-        return $query;
+        return $query->result_array();
     }
 }
