@@ -6,7 +6,7 @@ class DataRegion extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model("DataRegion_model");
+        $this->load->model("dataRegion_model");
     }
 
     public function index(){
@@ -22,13 +22,13 @@ class DataRegion extends CI_Controller
     {
         $id = $this->input->get('id', TRUE);
 
-        $data = $this->dataregion->getProvince($id);
+        $data = $this->dataRegion_model->getProvince($id);
         $this->conv_json($data);
     }
 
     public function getProvinces()
     {
-        $data = $this->dataregion->getProvinces();
+        $data = $this->dataRegion_model->getProvinces();
         $this->conv_json($data);
     }
 
@@ -36,7 +36,7 @@ class DataRegion extends CI_Controller
     {
         $id = $this->input->get('id', TRUE);
 
-        $data = $this->dataregion->getCity($id);
+        $data = $this->dataRegion_model->getCity($id);
         $this->conv_json($data);
     }
 
@@ -44,7 +44,7 @@ class DataRegion extends CI_Controller
     {
         $id = $this->input->get('id', TRUE);
 
-        $data = $this->dataregion->getCities_by($id);
+        $data = $this->dataRegion_model->getCities_by($id);
         $this->conv_json($data);
     }
 
@@ -52,7 +52,7 @@ class DataRegion extends CI_Controller
     {
         $id = $this->input->get('id', TRUE);
 
-        $data = $this->dataregion->getSubdistrict($id);
+        $data = $this->dataRegion_model->getSubdistrict($id);
         $this->conv_json($data);
     }
 
@@ -60,7 +60,7 @@ class DataRegion extends CI_Controller
     {
         $id = $this->input->get('id', TRUE);
 
-        $data = $this->dataregion->getSubdistricts_by($id);
+        $data = $this->dataRegion_model->getSubdistricts_by($id);
         $this->conv_json($data);
     }
 
@@ -68,7 +68,7 @@ class DataRegion extends CI_Controller
     {
         $id = $this->input->get('id', TRUE);
 
-        $data = $this->dataregion->getVillage($id);
+        $data = $this->dataRegion_model->getVillage($id);
         $this->conv_json($data);
     }
 
@@ -76,7 +76,7 @@ class DataRegion extends CI_Controller
     {
         $id = $this->input->get('id', TRUE);
 
-        $data = $this->dataregion->getVillage_by($id);
+        $data = $this->dataRegion_model->getVillage_by($id);
         $this->conv_json($data);
     }
 
@@ -84,7 +84,7 @@ class DataRegion extends CI_Controller
     {
         $id = $this->input->get('id', TRUE);
 
-        $data = $this->dataregion->getPostcodes($id);
+        $data = $this->dataRegion_model->getPostcodes($id);
         $this->conv_json($data);
     }
 }
