@@ -76,7 +76,7 @@ class DataRegion extends CI_Controller
     {
         $id = $this->input->get('id', TRUE);
 
-        $data = $this->dataRegion_model->getVillage_by($id);
+        $data = $this->dataRegion_model->getVillages_by($id);
         $this->conv_json($data);
     }
 
