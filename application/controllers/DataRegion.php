@@ -17,7 +17,7 @@ class DataRegion extends CI_Controller
         $_lokasi = '';
         if($type==1){
             $_lokasi = 'kab.';
-        }else if($_lokasi==2){
+        }else if($type==2){
             $_lokasi = 'kota';
         }
 
