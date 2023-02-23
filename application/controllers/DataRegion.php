@@ -13,6 +13,17 @@ class DataRegion extends CI_Controller
 
     }
 
+    public function _conv_type_city($type=0){
+        $_lokasi = '';
+        if($type==1){
+            $_lokasi = 'kab.';
+        }else if($_lokasi==2){
+            $_lokasi = 'kota';
+        }
+
+        return $_lokasi;
+    }    
+
     public function conv_json($jose=''){
         $nt = array('result' => $jose);
         echo json_encode($nt);
@@ -37,15 +48,32 @@ class DataRegion extends CI_Controller
         $id = $this->input->get('id', TRUE);
 
         $data = $this->dataRegion_model->getCity($id);
+        
+        if(isset($data[0])){
+            $val = $data[0];
+            $type = $this->_conv_type_city($val['type']);
+            $val['city'] = $type . ' ' . $val['city'];
+
+            $data[0] = $val;
+        }
+
         $this->conv_json($data);
     }
 
     public function getCities_by()
     {
+        $city = array();
         $id = $this->input->get('id', TRUE);
 
         $data = $this->dataRegion_model->getCities_by($id);
-        $this->conv_json($data);
+        foreach ($data as $key => $val) {
+            $type = $this->_conv_type_city($val['type']);
+            $val['city'] = $type . ' ' . $val['city'];
+
+            $city[] = $val;
+        }
+
+        $this->conv_json($city);
     }
 
     public function getSubdistrict()
