@@ -7,7 +7,7 @@ class Dataanak_model extends CI_Model
         return $this->db->get('list_akun')->result();
     }
     
-        function getSortirNama($nile){
+    function getSortirNama($nile){
         $this->db->like('Nama_Anak', $nile);
         $this->db->order_by('Nama_Anak','ASC');
         return $this->db->get('list_akun')->result();
@@ -18,9 +18,20 @@ class Dataanak_model extends CI_Model
         return $this->db->get('list_akun')->result();
     }
     
-        function getCaraPenggunaan(){
+    function getCaraPenggunaan(){
         return $this->db->get('cara_penggunaan')->result();
     }
+    
+    function insertDataAnak($datane){
+        $kueri = $this->db->insert('list_akun', $datane);
+        if($kueri){
+            return "sukses";
+        }
+        else{
+            return "gagal";
+        }
+    }
+
 
     
 

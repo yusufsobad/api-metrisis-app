@@ -37,6 +37,29 @@ class AndroidDataAnak extends CI_Controller
         $nt = array('result' => $jose);
         echo json_encode($nt);
     }
+    
+    
+    public function tambahDataAnak(){
+        $post = $this->input->post();
+        $data = $this->dataanak_model;
+        $varine = array(
+            'NIK_Anak' => $post["NIK"],
+            'Nama_Anak' => $post["Nama"],
+            'Tanggal_Lahir' => $post["TTL"],
+            'Berat_Lahir' => $post["BBLahir"],
+            'Nama_Ortu' => $post["Ortu"], 
+           'Jenis_Kelamin' => $post["Gender"], 
+            'Provinsi' => $post["Provinsi"], 
+            'Kab_Kota' => $post["Kota"], 
+            'Kecamatan' => $post["Kecamatan"], 
+            'Desa_Kelurahan' => $post["Kelurahan"], 
+            'Kode_Pos' => $post["KodePos"], 
+            'Alamat' => $post["Alamat"], 
+        );
+        $jose = $data->insertDataAnak($varine);
+        echo json_encode($jose);
+    } 
+
 
     public function penggunaanAplikasi(){
         $post = $this->input->post();

@@ -118,6 +118,21 @@ class AndroidDataPengukuran extends CI_Controller
     }
    
     
+    public function detailLaporan(){
+        $post = $this->input->post();
+        $data = $this->datapengukuran_model;
+        $jose = $data->getDetailPengukuranByNoID($post["ID"]);
+        $nt = array('result' => $jose);
+        echo json_encode($nt);
+    } 
+
+    public function historyPengukuran(){
+        $post = $this->input->post();
+        $data = $this->datapengukuran_model;
+        $jose = $data->getHistoryPengukuranByNIK($post["nik"]);
+        $nt = array('result' => $jose);
+        echo json_encode($nt);
+    } 
 
 
 
