@@ -32,12 +32,14 @@ class AndroidDataPengukuran extends CI_Controller
         $post = $this->input->post();
         $data = $this->datapengukuran_model;
         $varine = array(
-            'NIK' => $post["NIK"],
+            'NIK' => $post["nik_anak"],
             'Tanggal' =>$tgle,
             'Berat_Badan' => $post["Berat"],
             'Panjang_Badan' => $post["Panjang"], 
             'Lingkar_Lengan' => $post["Lila"], 
-            'Lingkar_Kepala' => $post["Like"], 
+            'Lingkar_Kepala' => $post["Like"],
+            'Vitamin' => $post["Vitamine"],
+            'Pemberian_ASI' => $post["Asine"], 
             'Kode_Posyandu' => $post["Posyandu"], 
             'Cara_Ukur' => $post["CaraUkur"], 
         );
