@@ -32,8 +32,8 @@ class AndroidDataPengukuran extends CI_Controller
         $post = $this->input->post();
         $data = $this->datapengukuran_model;
         $varine = array(
+            'Tanggal' => $tgle,
             'NIK' => $post["nik_anak"],
-            'Tanggal' =>$tgle,
             'Berat_Badan' => $post["Berat"],
             'Panjang_Badan' => $post["Panjang"], 
             'Lingkar_Lengan' => $post["Lila"], 
@@ -110,15 +110,13 @@ class AndroidDataPengukuran extends CI_Controller
         $writer->save('cetak/Report_Pengukuran.xlsx');
 
         $item["nama"] = "Report_Pengukuran.xlsx";
-        $item["alamat"] = "https://tokonadia.com/andon/cetak/Report_Pengukuran.xlsx";
+        $item["alamat"] = "https://app-metrisis.soloabadi.com/cetak/Report_Pengukuran.xlsx";
+
         $mbuh = array();
         $mbuh[] = $item;
         $datane = array('result' => $mbuh);
         echo json_encode($datane);
- 
-
     }
-   
     
     public function detailLaporan(){
         $post = $this->input->post();
