@@ -9,8 +9,8 @@ use PhpOffice\PhpSpreadsheet\Worksheet\AutoFilter;
 class AndroidDataPengukuran extends CI_Controller
 {
 
- //   public $url = "https://app-metrisis.soloabadi.com/cetak/Report_Pengukuran.xlsx";
-    public $url = "http://192.168.43.208/andon/cetak/Report_Pengukuran.xlsx";
+    public $url = "https://app-metrisis.soloabadi.com/cetak/Report_Pengukuran.xlsx";
+//    public $url = "http://192.168.43.208/andon/cetak/Report_Pengukuran.xlsx";
 
 
     public function __construct()
