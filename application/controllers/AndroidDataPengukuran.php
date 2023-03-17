@@ -8,6 +8,11 @@ use PhpOffice\PhpSpreadsheet\Worksheet\AutoFilter;
 
 class AndroidDataPengukuran extends CI_Controller
 {
+
+ //   public $url = "https://app-metrisis.soloabadi.com/cetak/Report_Pengukuran.xlsx";
+    public $url = "http://192.168.43.208/andon/cetak/Report_Pengukuran.xlsx";
+
+
     public function __construct()
     {
         parent::__construct();
@@ -32,13 +37,14 @@ class AndroidDataPengukuran extends CI_Controller
         $post = $this->input->post();
         $data = $this->datapengukuran_model;
         $varine = array(
-            'Tanggal' => $tgle,
+            'Tanggal' =>$tgle,
             'NIK' => $post["nik_anak"],
+            'Nama_Anak' => $post["nama"],
             'Berat_Badan' => $post["Berat"],
             'Panjang_Badan' => $post["Panjang"], 
             'Lingkar_Lengan' => $post["Lila"], 
-            'Lingkar_Kepala' => $post["Like"],
-            'Vitamin' => $post["Vitamine"],
+            'Lingkar_Kepala' => $post["Like"], 
+            'Vitamin' => $post["Vitamine"], 
             'Pemberian_ASI' => $post["Asine"], 
             'Kode_Posyandu' => $post["Posyandu"], 
             'Cara_Ukur' => $post["CaraUkur"], 
@@ -110,14 +116,15 @@ class AndroidDataPengukuran extends CI_Controller
         $writer->save('cetak/Report_Pengukuran.xlsx');
 
         $item["nama"] = "Report_Pengukuran.xlsx";
-        $item["alamat"] = "https://app-metrisis.soloabadi.com/cetak/Report_Pengukuran.xlsx";
-
+        $item["alamat"] = $this->url;
         $mbuh = array();
         $mbuh[] = $item;
         $datane = array('result' => $mbuh);
         echo json_encode($datane);
+ 
+
     }
-    
+   
     public function detailLaporan(){
         $post = $this->input->post();
         $data = $this->datapengukuran_model;
@@ -133,6 +140,34 @@ class AndroidDataPengukuran extends CI_Controller
         $nt = array('result' => $jose);
         echo json_encode($nt);
     } 
+
+    public function filterLaporan(){
+        $post = $this->input->post();
+        $data = $this->datapengukuran_model;
+        $jose = $data->getFilterLapPengukuran($post["tglStart"], $post["tglFinish"]);
+        $nt = array('result' => $jose);
+        echo json_encode($nt);
+    } 
+
+    public function sortirLapByNama(){
+        $post = $this->input->post();
+        $data = $this->datapengukuran_model;
+        $jose = $data->getSortLapPengukuranByName($post["Namane"]);
+        $nt = array('result' => $jose);
+        echo json_encode($nt);
+    } 
+
+
+    public function hapusPengukuranByNomor(){
+        $post = $this->input->post();
+        $data = $this->datapengukuran_model;
+        $varine = array(
+            'No_ID' => $post["No_ID"],
+        );
+        $jose = $data->deletePengukuranByID($varine);
+        echo json_encode($jose);
+    } 
+
 
 
 
